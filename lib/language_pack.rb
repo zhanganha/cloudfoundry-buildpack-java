@@ -3,6 +3,7 @@ require "language_pack/web_xml_config"
 require "language_pack/package_fetcher"
 require "language_pack/java"
 require "language_pack/java_web"
+require "language_pack/java_tongweb"
 require "language_pack/spring"
 require "language_pack/grails"
 require "language_pack/play"
@@ -17,7 +18,7 @@ module LanguagePack
   def self.detect(*args)
     Dir.chdir(args.first)
 
-    pack = [ Play, Grails, Spring, JavaWeb, Java ].detect do |klass|
+    pack = [ Play, Grails, JavaTongweb, Spring, JavaWeb, Java ].detect do |klass|
       klass.use?
     end
 
